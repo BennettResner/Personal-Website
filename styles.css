@@ -1,0 +1,172 @@
+/* ─── Reset ─────────────────────────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Themes ─────────────────────────────────────────────────────────────── */
+
+:root {
+  --bg:          #edeade;
+  --text:        #4a4a4a;
+  --text-muted:  #7a7a7a;
+  --hover-color: #888888;
+}
+
+[data-theme="bsod"] {
+  --bg:          #0000aa;
+  --text:        #ffffff;
+  --text-muted:  #aaaaff;
+  --hover-color: #ccccff;
+}
+
+[data-theme="terminal"] {
+  --bg:          #0d0d0d;
+  --text:        #00ff41;
+  --text-muted:  #00aa2b;
+  --hover-color: #66ff88;
+}
+
+[data-theme="ember"] {
+  --bg:          #111118;
+  --hover-color: #ffffff;
+}
+
+/* ─── Base ───────────────────────────────────────────────────────────────── */
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Space Mono', monospace;
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* ─── Layout ─────────────────────────────────────────────────────────────── */
+
+.page-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+}
+
+.layout {
+  flex: 1;
+}
+
+.identity {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Blocks ─────────────────────────────────────────────────────────────── */
+
+.mark {
+  margin-bottom: 2rem;
+}
+
+.block {
+  margin-bottom: 2rem;
+}
+
+/* ─── Timeline rows ──────────────────────────────────────────────────────── */
+
+.timeline-row {
+  display: flex;
+  gap: 3rem;
+}
+
+/* ─── Projects nav ───────────────────────────────────────────────────────── */
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.projects > p {
+  margin-bottom: 0.1rem;
+}
+
+.projects a {
+  display: flex;
+  gap: 3rem;
+}
+
+/* ─── Links nav ──────────────────────────────────────────────────────────── */
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+/* ─── Anchors ────────────────────────────────────────────────────────────── */
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s ease;
+}
+
+a:hover {
+  color: var(--hover-color);
+  transform: translateX(4px);
+}
+
+/* ─── Footer ─────────────────────────────────────────────────────────────── */
+
+.footer {
+  padding-top: 2rem;
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+}
+
+/* Shared styles for footer buttons */
+.theme-toggle,
+.auto-toggle {
+  background: none;
+  border: none;
+  font-family: 'Space Mono', monospace;
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.15s ease;
+}
+
+.theme-toggle {
+  color: var(--text-muted);
+}
+
+.auto-toggle {
+  color: var(--text);
+}
+
+.auto-toggle.paused {
+  color: var(--text-muted);
+}
+
+.theme-toggle:hover,
+.auto-toggle:hover {
+  color: var(--hover-color);
+  transform: translateX(4px);
+}
+
+.theme-label {
+  color: var(--text-muted);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.theme-label.visible {
+  opacity: 1;
+}
