@@ -96,7 +96,10 @@ body {
 
 .projects a {
   display: flex;
-  gap: 3rem;
+}
+
+.projects a span:first-child {
+  min-width: 20ch;
 }
 
 /* ─── Links nav ──────────────────────────────────────────────────────────── */
